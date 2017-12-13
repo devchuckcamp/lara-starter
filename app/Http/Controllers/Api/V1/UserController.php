@@ -34,43 +34,48 @@ class UserController extends BaseController
      */
 
 
-    public function index()
-    {
+    // public function index()
+    // {
 
-        $params = Input::all();
+    //     $params = Input::all();
 
-        // assign resource class to var 
-        $doctor = $this->resource_class::query();
+    //     // assign resource class to var 
+    //     $user = $this->resource_class::query();
 
-        /**
-         * Filters - Name and Specialty
-         *
-         */
+    //     /**
+    //      * Filters - Name and Specialty
+    //      *
+    //      */
 
-        // if(isset($params['name'])){
-        //     $doctor = $doctor->where('fname', 'LIKE', '%' . $params['name'] . '%')
-        //         ->orWhere('lname', 'LIKE', '%' . $params['name'] . '%');
-        // }
+    //     // if(isset($params['name'])){
+    //     //     $doctor = $doctor->where('fname', 'LIKE', '%' . $params['name'] . '%')
+    //     //         ->orWhere('lname', 'LIKE', '%' . $params['name'] . '%');
+    //     // }
 
-        // if(isset($params['specialty_id'])){
-        //     $doctor = $doctor->whereHas('doctorspecialty', function ($q) use ($params) {
-        //          $q->where('id', $params['specialty_id']);
-        //     });
-        // }
+    //     // if(isset($params['specialty_id'])){
+    //     //     $doctor = $doctor->whereHas('doctorspecialty', function ($q) use ($params) {
+    //     //          $q->where('id', $params['specialty_id']);
+    //     //     });
+    //     // }
+    //     $user = Auth::user();
 
-        $doctor = $doctor->orderBy('created_at','DESC')
-                ->with(['user','userRole'])
-                ->paginate();
+    //     //switch($user->role_id){
+
+    //         //case 1: 
+    //         $user = $user->orderBy('created_at','DESC')
+    //             ->with(['role'])
+    //             ->paginate();
    
-        // check if we have a resource
-        if($doctor){
-            // give back the resource that we need
-            return \Response::json($doctor, 200);
-        }
-         // give them a 404
-        return $this->response_404();
+    //         // check if we have a resource
+    //         if($user){
+    //             // give back the resource that we need
+    //             return \Response::json($user, 200);
+    //         }
+    //     //}
+    //      // give them a 404
+    //     return $this->response_404();
 
-    }
+    // }
 
     public function show($id = ''){
 
