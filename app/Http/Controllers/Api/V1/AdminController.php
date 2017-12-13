@@ -35,21 +35,6 @@ class AdminController
         // assign resource class to var 
         $admin = $this->resource_class::query();
 
-        /**
-         * Filters - Name and Specialty
-         *
-         */
-
-        // if(isset($params['name'])){
-        //     $doctor = $doctor->where('fname', 'LIKE', '%' . $params['name'] . '%')
-        //         ->orWhere('lname', 'LIKE', '%' . $params['name'] . '%');
-        // }
-
-        // if(isset($params['specialty_id'])){
-        //     $doctor = $doctor->whereHas('doctorspecialty', function ($q) use ($params) {
-        //          $q->where('id', $params['specialty_id']);
-        //     });
-        // }
 
         $admin = $admin->orderBy('created_at','DESC')
                 ->with(['role','user'])
