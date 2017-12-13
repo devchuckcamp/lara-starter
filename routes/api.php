@@ -13,13 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return auth()->guard('api')->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/user/profile', function() {
-    return auth()->guard('api')->user();
-});
+Route::get('/user', function () {
+    //
+})->middleware('auth:api');
 
 
 Route::group([ 'prefix' => 'v1', 'namespace' => 'Api' ], function() {
