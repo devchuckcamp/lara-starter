@@ -241,19 +241,4 @@ abstract class BaseController
         return $this->response_404();
     }
 
-    // public function audit_trail_log($action , $id){
-
-    //     // check if we have an id
-    //     $id ? $log_id = $id : $log_id = '';
-        
-    //     // log audit trail!
-    //     \AuditTrail::create(
-    //             [   'action'    =>  $this->resource_name . ' : ' . $action . ' record ' .  $log_id, 
-    //                 'user_id'   =>  Auth::user()->id  ]);  
-    
-    // }
-
-	
-
-
 }
